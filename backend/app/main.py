@@ -1,6 +1,7 @@
 """FastAPI entrypoint."""
 from __future__ import annotations
 import logging
+import warnings
 from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
@@ -11,6 +12,7 @@ from .routers import coach, engine, review, system
 logging.basicConfig(level=getattr(logging, settings.log_level.upper(), logging.INFO),
                     format="%(asctime)s %(levelname)s %(name)s: %(message)s")
 logger = logging.getLogger("chess_coach")
+warnings.filterwarnings("ignore", category=UserWarning, module="pydantic")
 
 @asynccontextmanager
 async def lifespan(app):

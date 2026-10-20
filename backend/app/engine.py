@@ -132,7 +132,6 @@ class EngineService:
             desired: dict[str, Any] = {
                 "Threads": params.threads,
                 "Hash": params.hash_mb,
-                "MultiPV": params.multi_pv,
                 "UCI_LimitStrength": params.limit_strength,
                 "UCI_Elo": params.elo,
                 "Skill Level": skill,
@@ -140,7 +139,6 @@ class EngineService:
         else:
             desired = {
                 "Threads": params.threads,
-                "MultiPV": params.multi_pv,
                 "WeightsFile": self._weights(params.maia_model),
             }
 
